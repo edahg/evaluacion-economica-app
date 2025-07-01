@@ -1,0 +1,6 @@
+pandas
+plotly
+streamlit
+streamlit-plotly-events
+openpyxl
+scipy
