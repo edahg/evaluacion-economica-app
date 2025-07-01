@@ -12,6 +12,10 @@ df = df.groupby(['MES', 'GRUPO', 'GRUPO_PP'])['Valor'].sum().reset_index()
 # Ensure MES is string or categorical for proper ordering
 df['MES'] = df['MES'].astype(str)
 
+# Divide los valores a miles de millones
+df['Valor'] = df['Valor'] / 1000000000
+
+
 # Pivot the data for stacked/grouped bar chart
 fig = px.bar(
     df,
@@ -25,7 +29,7 @@ fig = px.bar(
 fig.update_layout(
     title='Ingresos y Costos por Mes',
     xaxis_title='Mes',
-    yaxis_title='Valor',
+    yaxis_title='Valor (Miles de millones)',
     legend_title='GRUPO',
     bargap=0.2
 )
